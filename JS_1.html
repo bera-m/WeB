@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Нажмите кнопку, чтобы получить содержимое предыдущего соседа элемента списка:</p>
+
+<ul>
+  <li id="item1">Кофе</li>
+  <li id="item2">Чай</li>
+  <li id="item3">Молоко</li>
+</ul>
+
+<button onclick="myFunction()">Попробуйте</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("item2").previousElementSibling.innerHTML;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>

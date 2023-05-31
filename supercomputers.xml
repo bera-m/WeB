@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <row>
+        <column>Суперкомпьютер 1</column>
+        <column>ABC Corporation</column>
+        <column>Intel Xeon</column>
+        <column>2.png</column>
+    </row>
+    <row>
+        <column>Суперкомпьютер 2</column>
+        <column>XYZ Corporation</column>
+        <column>AMD EPYC</column>
+        <column>1.png</column>
+    </row>
+   
+</data>

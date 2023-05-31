@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>WEB</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+      #clock {
+            font-family: "Consolas", "Lucida Console", monospace;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <hr color=#444654 size="4">
+    <div class="dropdown">
+        <div class="dropdown-toggle">Выберете страницу</div>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="index.html"> Суперкомпьютеры</a>
+            <a class="dropdown-item" href="page2.html">Страница 2</a>
+            <a class="dropdown-item" href="sources.html">Источники</a>
+            <a class="dropdown-item" href="JS_2.html">Сценарий JS</a>
+            <a class="dropdown-item" href="#">Анкета</a>
+            <a class="dropdown-item" href="#">Таблицы из БД</a>
+            <a class="dropdown-item" href="#">Таблицы из xml</a>
+        </div>
+    </div>
+    <br><br>
+    <button onclick="showAuthorInfo()">Показать информацию об авторе</button>
+    <br><br>
+    <div id="clock">
+        <span id="hours"></span>:<span id="minutes"></span><span id="seconds"></span>
+    </div>
+    <button onclick="toggleSeconds()">Показать/скрыть секунды</button>
+    <br><br>
+    <input type="text" id="inputData1" placeholder="Введите данные 1">
+<input type="text" id="inputData2" placeholder="Введите данные 2">
+<input type="text" id="inputData3" placeholder="Введите данные 3">
+<input type="text" id="inputData4" placeholder="Введите данные 4">
+<button onclick="addRowWithData()">Добавить строку с данными</button>
+
+<table id="js_table" cellpadding="6" width="70%" align="center">
+      <caption>Сравнение суперкомпьютеров</caption>
+        <td><img src="Pc.png" alt="An image"></td>
+        <td>Фугаку&middot;E2</td>
+        <td>LUMI</td>
+        <td>Earth Simulator</td>
+      <tr>
+        <td>Мощность >15МВт</td>
+        <td colspan="2" rowspan="2">Да</td>
+        <td>Нет</td>
+      </tr>
+      <tr>
+        <td>ОС линукс</td>
+        <td>Нет</td>
+      </tr>
+      <tr>
+        <td>ES OS</td>
+        <td>Нет</td>
+        <td>Нет</td>
+        <td>Да</td>
+      </tr>
+    </table>
+</table>
+<hr color=#444654 size="4">
+<br>
+<button onclick="addEmptyRow()">Добавить пустую строку</button>
+<button onclick="removeLastAddedRow()">Удалить последнюю добавленную строку</button>
+<br><br>
+<div id="exampleElement">SuperPC</div>
+<br>
+<button onclick="changeElementColor('exampleElement', 'orange')">Изменить цвет</button>
+<button onclick="changeElementSize('exampleElement', 24)">Изменить размер</button>
+<br><br>
+<ul id="exampleList">
+    <li>Элемент списка 1</li>
+    <li>Элемент списка 2</li>
+</ul>
+<br>
+<input type="text" id="listItemInput" placeholder="Введите текст элемента списка">
+<button onclick="addListItem('exampleList', document.getElementById('listItemInput').value)">Добавить элемент списка</button>
+<button onclick="removeListItem('exampleList', -1)">Удалить последний добавленный элемент списка</button>
+<script>
+    let showSeconds = false;
+    let lastAddedRowIndex = null;
+
+    const toggleSeconds = () => {
+        showSeconds = !showSeconds;
+    };
+
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+
+        document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+        document.getElementById("seconds").textContent = showSeconds ? ":" + seconds.toString().padStart(2, "0") : "";
+    }
+
+    setInterval(updateClock, 1000);
+
+    function showAuthorInfo() {
+        alert("Березинкин М.Р. группа 4031");
+    }
+
+    function addRowWithData() {
+        const table = document.getElementById("js_table");
+        const newRow = table.insertRow(-1);
+        lastAddedRowIndex = newRow.rowIndex;
+
+        const inputData1 = document.getElementById("inputData1").value;
+        const inputData2 = document.getElementById("inputData2").value;
+        const inputData3 = document.getElementById("inputData3").value;
+        const inputData4 = document.getElementById("inputData4").value;
+
+        newRow.insertCell(-1).innerText = inputData1;
+        newRow.insertCell(-1).innerText = inputData2;
+        newRow.insertCell(-1).innerText = inputData3;
+        newRow.insertCell(-1).innerText = inputData4;
+
+        document.getElementById("inputData1").value = "";
+        document.getElementById("inputData2").value = "";
+        document.getElementById("inputData3").value = "";
+        document.getElementById("inputData4").value = "";
+    }
+
+    function addEmptyRow() {
+        const table = document.getElementById("js_table");
+        const newRow = table.insertRow(-1);
+        lastAddedRowIndex = newRow.rowIndex;
+
+        for (let i = 0; i < table.rows[0].cells.length; i++) {
+            newRow.insertCell(-1);
+        }
+    }
+
+    function removeLastAddedRow() {
+        if (lastAddedRowIndex !== null) {
+            const table = document.getElementById("js_table");
+            table.deleteRow(lastAddedRowIndex);
+            lastAddedRowIndex = null;
+        }
+    }
+
+    function changeElementColor(elementId, color) {
+        const element = document.getElementById(elementId);
+        element.style.color = color;
+    }
+
+    function changeElementSize(elementId, size) {
+        const element = document.getElementById(elementId);
+        element.style.fontSize = size + "px";
+    }
+
+    window.addEventListener("load", () => {
+        console.log("Страница загружена");
+    });
+
+    window.addEventListener("scroll", () => {
+        console.log("Прокрутка страницы");
+    });
+
+    window.addEventListener("resize", () => {
+        console.log("Изменение размера окна");
+    });
+
+    function addListItem(listId, itemText) {
+        const list = document.getElementById(listId);
+        const listItem = document.createElement("li");
+        listItem.textContent = itemText;
+        listItem.classList.add("addedListItem");
+        list.appendChild(listItem);
+    }
+
+    function removeListItem(listId, itemIndex) {
+        const list = document.getElementById(listId);
+        const addedListItems = list.querySelectorAll('.addedListItem');
+        if (itemIndex === -1 && addedListItems.length > 0) {
+            list.removeChild(addedListItems[addedListItems.length - 1]);
+        } else if (itemIndex >= 0 && itemIndex < addedListItems.length) {
+            list.removeChild(addedListItems[itemIndex]);
+}
+}
+</script>
+
+</body>
+</html>
+

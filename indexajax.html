@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+  <title>WEB</title>
+  <link rel="stylesheet" href="css/main.css">
+
+  <script type="text/javascript">
+    function Load() {
+      var nameInput = encodeURIComponent(document.getElementById("name").value);
+      var manufacturerInput = encodeURIComponent(document.getElementById("manufacturer").value);
+      var yearInput = encodeURIComponent(document.getElementById("year_of_release").value);
+      var countryInput = encodeURIComponent(document.getElementById("country").value);
+      var usernameInput = encodeURIComponent(document.getElementById("username").value);
+
+      if (nameInput === '' || manufacturerInput === '' || yearInput === '' || countryInput === '' || usernameInput === '') {
+        alert('Пожалуйста, заполните все поля');
+        return;
+      }
+
+      var req = new XMLHttpRequest();
+
+      req.onreadystatechange = function() {
+        if (req.readyState === 4 && req.status === 200) {
+          document.getElementById('content').innerHTML = req.responseText;
+
+          // Обновление списка сообщений после добавления нового сообщения
+          fetchMessageList();
+        }
+      };
+
+      var params = 'name=' + nameInput + '&manufacturer=' + manufacturerInput + '&year_of_release=' + yearInput + '&country=' + countryInput + '&username=' + usernameInput;
+      req.open("GET", 'http://localhost/myajaxprimer.php?' + params, true);
+
+      var startTime = performance.now();
+
+      req.onload = function() {
+        var endTime = performance.now();
+        var executionTime = endTime - startTime;
+        console.log('Время выполнения запроса:', executionTime, 'мс');
+
+        // Очистка полей формы после отправки запроса
+        document.getElementById("name").value = '';
+        document.getElementById("manufacturer").value = '';
+        document.getElementById("year_of_release").value = '';
+        document.getElementById("country").value = '';
+        document.getElementById("username").value = '';
+      };
+
+      req.send();
+    }
+
+    // Функция для получения списка сообщений с сервера
+    function fetchMessageList() {
+      var messageList = document.getElementById('message-list');
+      fetch('http://localhost/myajaxprimer.php?')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          // Очищаем список сообщений перед обновлением
+          messageList.innerHTML = '';
+
+          // Добавляем каждое сообщение в список
+          data.forEach(function(message) {
+            var li = document.createElement('li');
+            li.innerHTML = '<strong>' + message.username + '</strong> (' + message.date + '): ' + message.text;
+            messageList.appendChild(li);
+          });
+        })
+        .catch(function(error) {
+          console.log('Ошибка при получении списка сообщений:', error);
+        });
+    }
+
+    // Вызываем функцию получения списка сообщений при загрузке страницы
+    window.onload = function() {
+      fetchMessageList();
+    };
+  </script>
+</head>
+
+<body>
+  <hr color="#444654" size="4">
+  <div class="dropdown">
+    <div class="dropdown-toggle">Выберете страницу</div>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="index.html"> Суперкомпьютеры</a>
+      <a class="dropdown-item" href="page2.html">Страница 2</a>
+      <a class="dropdown-item" href="sources.html">Источники</a>
+      <a class="dropdown-item" href="JS_2.html">Сценарий JS</a>
+      <a class="dropdown-item" href="LR_5.html">Анкета</a>
+      <a class="dropdown-item" href="indexajax.html">Таблицы из БД</a>
+      <a class="dropdown-item" href="#">Таблицы из xml</a>
+    </div>
+  </div>
+  <hr color="#444654" size="4">
+
+  <div class="form-container">
+    <h2>Демонстрация технологии AJAX с отправкой GET-запроса</h2>
+    <div class="form-group">
+      <label for="name">Название суперкомпьютера:</label>
+      <input type="text" id="name" name="name" placeholder="Название суперкомпьютера">
+    </div>
+    <div class="form-group">
+      <label for="manufacturer">Производитель:</label>
+      <input type="text" id="manufacturer" name="manufacturer" placeholder="Производитель">
+    </div>
+    <div class="form-group">
+      <label for="year_of_release">Год выпуска:</label>
+      <input type="text" id="year_of_release" name="year_of_release" placeholder="Год выпуска">
+    </div>
+    <div class="form-group">
+      <label for="country">Страна:</label>
+      <input type="text" id="country" name="country" placeholder="Страна">
+    </div>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <button type="button" onclick="Load()">Отправить сообщение</button>
+    </div>
+
+    <ul id="message-list"></ul>
+    <div id="content">Здесь будет ответ сервера</div>
+  </div>
+
+  <hr color="#444654" size="4">
+
+</body>
+
+</html>

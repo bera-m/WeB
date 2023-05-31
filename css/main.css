@@ -1,0 +1,279 @@
+a:link {
+  text-decoration: none;
+  color: #D4AF37;
+}
+
+a:visited {
+  color: #D4AF37;
+}
+
+.SuperPC {
+  border-radius: 10%;
+  transition: transform .9s ease-in-out;
+}
+
+.SuperPC:hover {
+  transform: rotate(360deg);
+  width: 666px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 4px solid #343541;
+}
+
+table:hover {
+  box-shadow: 0px 0px 20px #343541;
+}
+
+h1,
+h3 {
+  text-shadow: 2px 2px #343541;
+}
+
+body {
+  background: #4f5d75 no-repeat center/cover;
+  font-family:'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #ECECF1;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 30px;
+}
+
+/* изменить цвет скролла */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #343541;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #343541;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+  transition: all .3s ease-in-out;
+}
+
+.dropdown-toggle:hover {
+  background-color: #f0f0f0;
+  color: #343541;
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  display: none;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  position: absolute;
+  z-index: 1;
+  background-color: #343541;
+  box-shadow: none;
+   border-radius: 16px;
+  animation-name: none;
+  border: solid #f0f0f0 thin;
+}
+
+.dropdown-menu a {
+  color: #f0f0f0;
+  display: inline-block;
+  padding: .5em 1em;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  border-bottom:  #ddd;
+  vertical-align: middle;
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #ddd;
+  color: #343541;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  transform-origin: center top;
+  animation-name: bounce-in-down;
+  animation-duration: .3s;
+  animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+  perspective: none;
+}
+
+/* Добавляем стили для формы */
+
+.form_style {
+  background-color: #343541;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.form_style input[type="text"],
+.form_style input[type="file"],
+.form_style input[type="submit"] {
+  margin: 10px 0;
+}
+
+.form_style input[type="text"] {
+  background-color: #444654;
+  color: #fff;
+  border: 0px;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.form_style input[type="text"]:focus {
+  outline: none;
+  border-color: #343541;
+  box-shadow: 0 0 3px rgba(52, 53, 65, 0.5);
+}
+
+.form_style input[type="text"]::placeholder {
+  color: #777;
+}
+
+.form_style input[type="submit"] {
+  background-color: #343541;
+  color: #fff;
+  padding: 15px 55px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.form_style input[type="submit"]:hover {
+  background-color: #444654;
+}
+
+.form_style h6 {
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.form_style .d-flex {
+  margin-bottom: 10px;
+}
+
+.form_style input[type="radio"] {
+  margin-left: 10px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.form_style input[type="file"] {
+  background-color: #444654;
+  border-radius: 12px;
+  padding: 13px;
+  font-size: 14px;
+  color: #777;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.form_style input[type="file"]:hover {
+  border-color: #343541;
+}
+
+.form_style input[type="file"]:focus {
+  outline: none;
+  border-color: #343541;
+  box-shadow: 0 0 3px rgba(52, 53, 65, 0.5);
+}
+
+
+
+
+/* Добавляем стили для формы ЛР7 */
+
+
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .form-group {
+        background-color: #343541;
+        padding: 10px;
+        border-radius: 16px;
+        box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group label {
+        color: #fff;
+        margin-bottom: 3px;
+
+
+
+    }
+
+    .form-group input[type="text"] {
+        padding: 8px;
+        border: 0px solid #cbcabe;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #444654;
+        box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-group button {
+        padding: 10px 30px;
+        background-color: #343541;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
+
+    }
+
+    .form-group button:hover {
+        background-color: #444654;
+
+    }
+
+    #content {
+        margin-top: 10px;
+        color: #cbcabe;
+
+    }

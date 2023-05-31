@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" href="css/main.css">
+    <script>
+        function loadXMLDoc(filename) {
+            if (window.ActiveXObject) {
+                xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            else {
+                xhttp = new XMLHttpRequest();
+            }
+            xhttp.open("GET", filename, false);
+            try { xhttp.responseType = "msxml-document" } catch(err) {} // Helping IE11
+            xhttp.send("");
+            return xhttp.responseXML;
+        }
+
+        function displayResult() {
+            xml = loadXMLDoc("3.xml");
+            xsl = loadXMLDoc("2.xsl");
+            xml2 = loadXMLDoc("4_str.xml");
+            xsl2 = loadXMLDoc("1_str.xsl");
+
+            // код для IE
+            if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+                ex = xml.transformNode(xsl);
+                document.getElementById("example").innerHTML = ex;
+            }
+            // код для Chrome, Firefox, Opera и др.
+            else if (document.implementation && document.implementation.createDocument) {
+                xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xsl);
+                resultDocument = xsltProcessor.transformToFragment(xml, document);
+                document.getElementById("example").appendChild(resultDocument);
+
+                xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xsl2);
+                res2 = xsltProcessor.transformToFragment(xml2, document);
+                document.getElementById("str").appendChild(res2);
+            }
+        }
+    </script>
+</head>
+<body onload="displayResult()">
+    XML в виде таблицы
+    <div id="example"></div>
+    <br>
+    <br>
+    XML построчно
+    <div id="str"></div>
+</body>
+</html>

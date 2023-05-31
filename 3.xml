@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog>
+    <type>
+     <name>Summit</name>
+     <company>IBM</company>
+     <speed>148.6 петафлопс</speed>
+     <cores>2,414,592</cores>
+    <manyimgs>spc1.png</manyimgs>      
+   </type>
+   <type>
+     <name>Sierra</name>
+     <company>IBM</company>
+     <speed>94.6 петафлопс</speed>
+     <cores>1,572,480</cores>
+     <manyimgs>spc2.png</manyimgs>       
+   </type>
+   <type>
+     <name>Sunway TaihuLight</name>
+     <company>NRCPC</company>
+     <speed>93 петафлопс</speed>
+     <cores>10,649,600</cores>
+     <manyimgs>spc3.png</manyimgs>        
+   </type>
+   <type>
+     <name>Tianhe-2A	</name>
+     <company>NUDT</company>
+     <speed>61.4 петафлопс</speed>
+     <cores>4,981,760	</cores>
+     <manyimgs>spc4.png</manyimgs>          
+   </type>
+    <type>
+     <name>Laga</name>
+     <company>Sfg</company>
+     <speed>84.6 петафлопс</speed>
+     <cores>2,572,480</cores>
+     <manyimgs>spc5.jpg</manyimgs>       
+   </type>
+    <type>
+     <name>Praga</name>
+     <company>Lich</company>
+     <speed>90.6 петафлопс</speed>
+     <cores>900,480</cores>
+     <manyimgs>spc6.jpg</manyimgs>       
+   </type>
+    <type>
+     <name>Miracl</name>
+     <company>Mut</company>
+     <speed>74.6 петафлопс</speed>
+     <cores>1,211,480</cores>
+     <manyimgs>spc7.jpg</manyimgs>       
+   </type>
+    <type>
+     <name>Manig</name>
+     <company>LID</company>
+     <speed>64.6 петафлопс</speed>
+     <cores>2,572,480</cores>
+     <manyimgs>spc8.jpg</manyimgs>       
+   </type>
+    <type>
+     <name>Vili</name>
+     <company>IBM</company>
+     <speed>99.6 петафлопс</speed>
+     <cores>1,879,290</cores>
+     <manyimgs>spc9.jpg</manyimgs>       
+   </type>
+   <type>
+     <name>Marciz</name>
+     <company>BM</company>
+     <speed>110.6 петафлопс</speed>
+     <cores>1,111,220</cores>
+     <manyimgs>spc2.png</manyimgs>       
+   </type>
+</catalog>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog>
+    <type>
+        <title>Суперкомпьютер 1</title>
+        <description>
+            Производитель: ABC Corporation
+            Процессор: Intel Xeon
+            Объем памяти: 256 ГБ
+            Хранение: SSD
+            Производительность: 1,000 TFLOPS
+        </description>
+    </type>
+    <type>
+        <title>Суперкомпьютер 2</title>
+        <description>
+            Производитель: XYZ Corporation
+            Процессор: AMD EPYC
+            Объем памяти: 512 ГБ
+            Хранение: NVMe
+            Производительность: 2,000 TFLOPS
+        </description>
+    </type>
+</catalog>
